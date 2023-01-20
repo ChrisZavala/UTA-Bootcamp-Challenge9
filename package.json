@@ -1,0 +1,22 @@
+{
+  "name": "uta-bootcamp-challenge9",
+  "version": "1.0.0",
+  "description": "Professional README Generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisZavala/UTA-Bootcamp-Challenge9.git"
+  },
+  "author": "Christopher Zavala",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisZavala/UTA-Bootcamp-Challenge9/issues"
+  },
+  "homepage": "https://github.com/ChrisZavala/UTA-Bootcamp-Challenge9#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
