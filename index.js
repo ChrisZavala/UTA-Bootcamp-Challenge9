@@ -22,15 +22,47 @@ const questions = [{
         // console.log(questionInput);
         if(questionInput){
             return true;
-        }else{
+        }else {
             console.log('Please enter something in this space');
             return false;
         }
     } 
 },
 {
+    type: 'input',
+    name: 'description',
+    message: 'What is the description of your project. (No Blanks Can Be Entered:)',
+
+    validate: questionInput => {
+        // console.log(questionInput);
+        if(questionInput){
+            return true;
+        }else {
+            console.log('Please enter a description of your project.');
+            return false;
+        }
+    } 
+},
+{
+    type: 'confirm',
+    name: 'confirmInstallation',
+    message: 'Confirm if there is an installation process?',
+},
+{
+    type: 'input',
+    name: 'installation',
+    message: 'List your installation steps here:?',
+    //my boolean check for the installation process above. 
+    when: ({installation})=> {
+        if(installation) {
+            return true;
+        } else {
+            return false; 
+        }
+    }
+},
     
-}
+
 
     
 
