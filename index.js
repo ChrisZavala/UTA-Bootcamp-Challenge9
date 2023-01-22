@@ -1,15 +1,8 @@
 //Global variables declaration. 
 // TODO: Include packages needed for this application
-//Going to need a file structure 
-
 const fs = require('fs');
-// Going to need inquirer function
 const inquirer = require('inquirer');
-//Going to need the generateMarkdown.js
 const generateMarkdown = require('./utils/generateMarkdown');
-//Going to need a declaration for the Utilities folder 
-// const util = require('util');
-
 
 // TODO: Create an array of questions for user input
 //This will be a very very large Array of questions and choices to those questions or answers. Ugh. 
