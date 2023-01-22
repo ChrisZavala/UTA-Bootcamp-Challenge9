@@ -3,7 +3,7 @@
 function renderLicenseBadge(license) {
   let badgeLabel = license.replace(" ", "&ensp;");
   return `
-  [![Generic badge](https://img.shields.io/badge/License-${badgeLabel}-green.svg)](${renderLicenseLink(license)})
+  [![Generic badge](https://img.shields.io/badge/License-${badgeLabel}-purple.svg)](${renderLicenseLink(license)})
   `
 };
 
@@ -35,7 +35,7 @@ function generateMarkdown(data) {
   return `
   # ${data.title}
 
-  ##Description 
+  ## Description 
   ${data.description}
 
   ## Table of Contents
@@ -44,26 +44,25 @@ function generateMarkdown(data) {
   - [Credits](#credits)
   - [License](#license)
 
-  ##Installation 
+  ## Installation 
   ${data.installation}
 
-  ##Usage
+  ## Usage
   ${data.provideInstruction}
 
-  ##Credits
+  ## Credits
   ${data.credit}
   List of GitHub contributors, [${GitHub}](https://gitbut.com/${GitHub})
 
-  ##License
   ${renderLicenseSection(licenseList)}
 
-  ##Features
+  ## Features
   ${data.features}
 
-  ##How to Contribute
+  ## How to Contribute
   ${data.contributions}
 
-  ##Test
+  ## Test
   ${data.tests}
 `;
 }
