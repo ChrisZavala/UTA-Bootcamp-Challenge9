@@ -8,12 +8,13 @@ const inquirer = require('inquirer');
 //Going to need the generateMarkdown.js
 const generateMarkdown = require('./utils/generateMarkdown');
 //Going to need a declaration for the Utilities folder 
-const util = require('util');
+// const util = require('util');
 
 
 // TODO: Create an array of questions for user input
 //This will be a very very large Array of questions and choices to those questions or answers. Ugh. 
 const questions = [{
+    // PROJECT TITLE
     type: 'input',
     name: 'title',
     message: 'What is your Project Title (No Blanks Can Be Entered:)',
@@ -29,6 +30,7 @@ const questions = [{
     } 
 },
 {
+     // PROJECT DESCRIPTION 
     type: 'input',
     name: 'description',
     message: 'What is the description of your project. (No Blanks Can Be Entered:)',
@@ -44,6 +46,7 @@ const questions = [{
     } 
 },
 {
+     // PROJECT INSTALLATION
     type: 'confirm',
     name: 'confirmInstallation',
     message: 'Confirm if there is an installation process?',
@@ -62,6 +65,7 @@ const questions = [{
     }
 },
 {
+     // PROJECT USAGE
     type: 'confirm',
     name: 'usage',
     message: 'Would you like to provide instructions and examples how to use your application',
@@ -80,6 +84,7 @@ const questions = [{
     }
 },
 {
+     // PROJECT CREDITS
     type: 'confirm',
     name: 'confirmCredits',
     message: 'Would you like to list your contributors that helped you with this project?',
@@ -98,6 +103,7 @@ const questions = [{
     }
 },
 {
+    // GITHUB USER NAME
     type: 'confirm',
     name: 'confirmGitHub',
     message: 'Would you like to list your contributors GibHub links?',
@@ -116,6 +122,7 @@ const questions = [{
     }
 },
 {
+    // PROJECT FEATURES
     type: 'confirm',
     name: 'confirmFeatures',
     message: 'Would you like to list the features of your project here?',
@@ -134,6 +141,7 @@ const questions = [{
     }
 },
 {
+    // PROJECT CONTRIBUTION INSTRUCTIONS
     type: 'confirm',
     name: 'confirmContribute',
     message: 'Would you like to help the developer(s) and contribute to the project overall?',
@@ -151,13 +159,10 @@ const questions = [{
         }
     }
 },
-{
-    type: 'confirm',
-    name: 'confirmTest',
-    message: 'Are tests available for your application?',
-},
+
 //doing my license next and I know will copy from the list on GitHub and give the user a chance to choose
 {
+    // LICENSE INFORMATION
     type: 'checkbox',
     name: 'license',
     message: 'Please choose your license for your project',
@@ -176,6 +181,12 @@ const questions = [{
     } 
 },
 {
+    // PROJECT TESTS
+    type: 'confirm',
+    name: 'confirmTest',
+    message: 'Are tests available for your application?',
+},
+{
     type: 'input',
     name: 'tests',
     message: 'List how the users can test your application.',
@@ -191,34 +202,22 @@ const questions = [{
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, error => {
-        if(error) {
-            return console.log("The is an error here: " + error);
-
-        }
-    })
-}
-
-
-//Need to create the READme to the file structure. 
-const writeREADme = util.promisify(writeToFile);
-
-
-// TODO: Create a function to initialize app
-async function init() {
-    try{
-        let alluserAnswers = await inquirer.prompt(questions);
-        console.log('Your data is currently being created in the READme.md file: '  , alluserAnswers);
-
-        let markDownTemp = generateMarkdown(alluserAnswers);
-        console.log(markDownTemp);
-        await writeREADme('README1.md', markDownTemp);
-
-    } catch(error) {
-        console.log('There was an issue creating your READme.md' + error)
-    }
-
+    fs.writeFile(fileName, data, (err) => 
+        err ? console.log(err) : console.log("README.md Generated Go to README.md on the left of the page to see your creation!")
+    )
 };
 
+// TODO: Create a function to initialize app
+function init() {
+    console.log(`
+    Welcome to the Professional README Generator! 
+    Answer the following question prompts to feed information to the generator.
+    `);
+    inquirer.prompt(questions)
+    .then(readmeData => {
+        // console.log(readmeData);
+        writeToFile("./newfileloc/readme.md", generateMarkdown(readmeData))
+    })
+};
 // Function call to initialize app
- init();
+init();
