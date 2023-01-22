@@ -22,7 +22,7 @@ function renderLicenseSection(license) {
     return "";
   } else {
     return `
-  ### Licensing 
+  ### License 
   ${license}
   ${renderLicenseBadge(license)}
   `

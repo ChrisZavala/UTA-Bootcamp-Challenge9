@@ -1,8 +1,8 @@
 
-  # The Professional READme Genarator
+  # sldkfjsdkjlf
 
   ## Description 
-  lsdj fl lsdkflk lskjdflsdjfljsdfljsdlkf
+  sldfjsdlkjf
 
   ## Table of Contents
   - [Installation](#installation)
@@ -11,20 +11,20 @@
   - [License](#license)
 
   ## Installation 
-  1. please make sure that node is installed
+  undefined
 
   ## Usage
   undefined
 
   ## Credits
-  Karen Peazonni Josh Goeke 
-  List of GitHub contributors, [https://github.com/kpeazzoni](https://gitbut.com/https://github.com/kpeazzoni)
+  undefined
+  List of GitHub contributors, [undefined](https://gitbut.com/undefined)
 
   
-  ### Licensing 
-  MIT License
+  ### License 
+  3ClauseRL
   
-  [![Generic badge](https://img.shields.io/badge/License-MIT&ensp;License-purple.svg)](https://choosealicense.com/licenses/mit-license/.)
+  [![Generic badge](https://img.shields.io/badge/License-3ClauseRL-purple.svg)](https://choosealicense.com/licenses/3clauserl/.)
   
   
 
@@ -35,4 +35,4 @@
   undefined
 
   ## Test
-  undefined
+  n

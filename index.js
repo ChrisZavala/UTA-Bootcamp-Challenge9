@@ -161,17 +161,18 @@ const questions = [{
     message: 'Please choose your license for your project',
     choices: [
         'None', 
-        'Apache License 2.0', 
-        'GNU General Public License v3.0', 
+        'Apache 2.0', 
+        'GPL 3.0', 
         'MIT License', 
-        'BSD 2-Clause "Simplified" License',
-        'BSD 3-Clause "New" or "Revised" License',
-        'Boost Software License 1.0', 
-        'Creative Commons Zero v1.0 Universal,', 
-        'Eclipse Public License 2.0', 
-        'GNU Affero General PUblic License v3.0', 
-        'GNU General Public License v2.0',
-        'GNU Lesser General Public License v2.1'
+        '2ClauseSL',
+        '3ClauseNL',
+        '3ClauseRL',
+        'BSL 1.0', 
+        'CCZ 1.0', 
+        'EPL 2.0', 
+        'AGPL 3.0', 
+        'GPL 2.0',
+        'LGPL 2.1'
     ],
     
     // validate: questionInput => {
@@ -198,7 +199,7 @@ const questions = [{
         if(confirmTest) {
             return true;
         } else {
-            return false; 
+            return 'NOT Available'; 
         }
     } 
 }];//This is ending the Array that I started right now on line 16 const questions[]
@@ -206,8 +207,7 @@ const questions = [{
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => 
-        err ? console.log(err) : console.log(
-            "README.md Generated. Go to 'newfileloc' to find the README.md file!"
+        err ? console.log(err) : console.log("README.md Generated. Go to 'newfileloc' to find the README.md file!"
             )
     )
 };
