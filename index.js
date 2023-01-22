@@ -156,22 +156,32 @@ const questions = [{
 //doing my license next and I know will copy from the list on GitHub and give the user a chance to choose
 {
     // LICENSE INFORMATION
-    type: 'checkbox',
-    name: 'license',
+    type: 'list',
+    name: 'licenseList',
     message: 'Please choose your license for your project',
-    choices: ['None', 'Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause "Simplified" License',
-              'BSD 3-Clause "New" or "Revised" License', 'Boost Software License 1.0', 'Creative Commons Zero v1.0 Universal,', 
-              'Eclipse Public License 2.0', 'GNU Affero General PUblic License v3.0', 'GNU General Public License v2.0',
-              'GNU Lesser General Public License v2.1'],
+    choices: [
+        'None', 
+        'Apache License 2.0', 
+        'GNU General Public License v3.0', 
+        'MIT License', 
+        'BSD 2-Clause "Simplified" License',
+        'BSD 3-Clause "New" or "Revised" License',
+        'Boost Software License 1.0', 
+        'Creative Commons Zero v1.0 Universal,', 
+        'Eclipse Public License 2.0', 
+        'GNU Affero General PUblic License v3.0', 
+        'GNU General Public License v2.0',
+        'GNU Lesser General Public License v2.1'
+    ],
     
-    validate: questionInput => {
-        if(questionInput){
-            return true;
-        }else {
-            console.log('Please pick a license!');
-            return false;
-        }
-    } 
+    // validate: questionInput => {
+    //     if(questionInput){
+    //         return true;
+    //     }else {
+    //         console.log('Please pick a license!');
+    //         return false;
+    //     }
+    // } 
 },
 {
     // PROJECT TESTS
@@ -196,7 +206,9 @@ const questions = [{
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => 
-        err ? console.log(err) : console.log("README.md Generated Go to README.md on the left of the page to see your creation!")
+        err ? console.log(err) : console.log(
+            "README.md Generated. Go to 'newfileloc' to find the README.md file!"
+            )
     )
 };
 
@@ -204,11 +216,10 @@ function writeToFile(fileName, data) {
 function init() {
     console.log(`
     Welcome to the Professional README Generator! 
-    Answer the following question prompts to feed information to the generator.
+    Answer the following question to feed information to the README Generator.
     `);
     inquirer.prompt(questions)
     .then(readmeData => {
-        // console.log(readmeData);
         writeToFile("./newfileloc/readme.md", generateMarkdown(readmeData))
     })
 };
