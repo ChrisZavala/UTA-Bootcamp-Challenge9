@@ -53,8 +53,8 @@ const questions = [{
     name: 'installation',
     message: 'What are the steps required to install your project? Please provide a list.',
     //my boolean check for the installation process above. 
-    when: ({installation})=> {
-        if(installation) {
+    when: ({confirmInstallation})=> {
+        if(confirmInstallation) {
             return true;
         } else {
             return false; 
@@ -71,8 +71,8 @@ const questions = [{
     name: 'provideInstruction',
     message: 'What are the instructions you would like to provide to use your application.',
     //my boolean check for the installation process above. 
-    when: ({provideInstruction})=> {
-        if(provideInstruction) {
+    when: ({usage})=> {
+        if(usage) {
             return true;
         } else {
             return false; 
@@ -89,33 +89,49 @@ const questions = [{
     name: 'credit',
     message: 'List the people who help to contribute to your project directly or indirectly',
     //my boolean check for the installation process above. 
-    when: ({credit})=> {
-        if(credit) {
+    when: ({confirmCredits})=> {
+        if(confirmCredits) {
             return true;
         } else {
             return false; 
         }
     }
 },
-//doing my license next and I know will copy from the list on GitHub and give the user a chance to choose
 {
-    type: 'checkbox',
-    name: 'license',
-    message: 'Please choose your license for your project',
-    choices: ['None', 'Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause "Simplified" License',
-              'BSD 3-Clause "New" or "Revised" License', 'Boost Software License 1.0', 'Creative Commons Zero v1.0 Universal,', 
-              'Eclipse Public License 2.0', 'GNU Affero General PUblic License v3.0', 'GNU General Public License v2.0',
-              'GNU Lesser General Public License v2.1'],
-    
-
-    validate: questionInput => {
-        if(questionInput){
+    type: 'confirm',
+    name: 'confirmGitHub',
+    message: 'Would you like to list your contributors GibHub links?',
+},
+{
+    type: 'input',
+    name: 'GitHub',
+    message: 'List your contributors GitHub Links',
+    //my boolean check for the installation process above. 
+    when: ({confirmGitHub})=> {
+        if(confirmGitHub) {
             return true;
-        }else {
-            console.log('Please pick a license!');
-            return false;
+        } else {
+            return false; 
         }
-    } 
+    }
+},
+{
+    type: 'confirm',
+    name: 'confirmFeatures',
+    message: 'Would you like to list the features of your project here?',
+},
+{
+    type: 'input',
+    name: 'features',
+    message: 'Write a short list of features here of your applications',
+    //my boolean check for the installation process above. 
+    when: ({confirmFeatures})=> {
+        if(confirmFeatures) {
+            return true;
+        } else {
+            return false; 
+        }
+    }
 },
 {
     type: 'confirm',
@@ -140,6 +156,25 @@ const questions = [{
     name: 'confirmTest',
     message: 'Are tests available for your application?',
 },
+//doing my license next and I know will copy from the list on GitHub and give the user a chance to choose
+{
+    type: 'checkbox',
+    name: 'license',
+    message: 'Please choose your license for your project',
+    choices: ['None', 'Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause "Simplified" License',
+              'BSD 3-Clause "New" or "Revised" License', 'Boost Software License 1.0', 'Creative Commons Zero v1.0 Universal,', 
+              'Eclipse Public License 2.0', 'GNU Affero General PUblic License v3.0', 'GNU General Public License v2.0',
+              'GNU Lesser General Public License v2.1'],
+    
+    validate: questionInput => {
+        if(questionInput){
+            return true;
+        }else {
+            console.log('Please pick a license!');
+            return false;
+        }
+    } 
+},
 {
     type: 'input',
     name: 'tests',
@@ -155,7 +190,35 @@ const questions = [{
 }];//This is ending the Array that I started right now on line 16 const questions[]
 
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data);
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, error => {
+        if(error) {
+            return console.log("The is an error here: " + error);
+
+        }
+    })
+}
+
+
+//Need to create the READme to the file structure. 
+const writeREADme = util.promisify(writeToFile);
+
 
 // TODO: Create a function to initialize app
-// init();
+async function init() {
+    try{
+        let alluserAnswers = await inquirer.prompt(questions);
+        console.log('Your data is currently being created in the READme.md file: '  , alluserAnswers);
+
+        let markDownTemp = generateMarkdown(alluserAnswers);
+        console.log(markDownTemp);
+        await writeREADme('README1.md', markDownTemp);
+
+    } catch(error) {
+        console.log('There was an issue creating your READme.md' + error)
+    }
+
+};
+
+// Function call to initialize app
+ init();
