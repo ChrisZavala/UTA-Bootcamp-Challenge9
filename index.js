@@ -58,23 +58,25 @@ const questions = [{
     }
 },
 {
-    // PROJECT LiveSite for Project
-   type: 'confirm',
-   name: 'confirmLiveSite',
-   message: 'Would you like to insert your live GitHub pages site?',
+    //PROJECT LIVE SITE
+    type: 'confirm',
+    name: 'confirmLiveLInk',
+    message: 'Would you like to enter enter a link to the live site, if it exists?',
+    default: false,
 },
 {
-   type: 'input',
-   name: 'LiveSite',
-   message: 'Provide the live site for your GitHub Pages site (include "https://")',
-   //my boolean check for the installation process above. 
-   when: ({confirmLiveSite})=> {
-       if(confirmLiveSite) {
-           return true;
-       } else {
-           return false; 
-       }
-   }
+    type: 'input',
+    name: 'liveSiteLink',
+    message: 'Provide a full link (include "https://") to the live site.',
+    when: ({ confirmLiveLInk }) => confirmLiveLInk,
+    validate: liveSiteLink => {
+        if (liveSiteLink) {
+        return true;
+        } else {
+        console.log('You need to enter a link to the live site!');
+        return false;
+        }
+}
 },
 {
      // PROJECT USAGE
@@ -238,6 +240,7 @@ function init() {
     `);
     inquirer.prompt(questions)
     .then(readmeData => {
+        console.log(readmeData)
         writeToFile("./newfileloc/readme.md", generateMarkdown(readmeData))
     })
 };
