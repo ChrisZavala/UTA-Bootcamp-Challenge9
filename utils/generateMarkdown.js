@@ -22,7 +22,7 @@ function renderLicenseSection(license) {
     return "";
   } else {
     return `
-  ### License 
+  ## License 
   ${license}
   ${renderLicenseBadge(license)}
   `
@@ -34,12 +34,9 @@ function renderLinkSection(siteLink) {
   if (!siteLink) {
     return "";
   } else {
-
     return `
-   
   [Click to see the live site](${siteLink})
-  `
-}
+  `}
 };
 
 // TODO: Create a function to generate markdown for README
@@ -58,7 +55,7 @@ function generateMarkdown(data) {
   - [Credits](#credits)
   - [License](#license)
   - [Features](#features)
-  - [How To Contribute](#howtocontribute)
+  - [How To Contribute](#how-to-contribute)
   - [Test](#test)
 
   ## Installation 

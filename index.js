@@ -241,7 +241,7 @@ function init() {
     inquirer.prompt(questions)
     .then(readmeData => {
         console.log(readmeData)
-        writeToFile("./newfileloc/readme.md", generateMarkdown(readmeData))
+        writeToFile("./dist/readme.md", generateMarkdown(readmeData))
     })
 };
 // Function call to initialize app
