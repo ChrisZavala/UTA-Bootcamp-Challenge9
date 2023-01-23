@@ -58,6 +58,25 @@ const questions = [{
     }
 },
 {
+    // PROJECT LiveSite for Project
+   type: 'confirm',
+   name: 'confirmLiveSite',
+   message: 'Would you like to insert your live GitHub pages site?',
+},
+{
+   type: 'input',
+   name: 'LiveSite',
+   message: 'Provide the live site for your GitHub Pages site (include "https://")',
+   //my boolean check for the installation process above. 
+   when: ({confirmLiveSite})=> {
+       if(confirmLiveSite) {
+           return true;
+       } else {
+           return false; 
+       }
+   }
+},
+{
      // PROJECT USAGE
     type: 'confirm',
     name: 'usage',
@@ -80,12 +99,12 @@ const questions = [{
      // PROJECT CREDITS
     type: 'confirm',
     name: 'confirmCredits',
-    message: 'Would you like to list your contributors that helped you with this project?',
+    message: 'Would you like to list your contributors?',
 },
 {
     type: 'input',
     name: 'credit',
-    message: 'List the people who help to contribute to your project directly or indirectly',
+    message: 'List your collaborators. ',
     //my boolean check for the installation process above. 
     when: ({confirmCredits})=> {
         if(confirmCredits) {
@@ -104,7 +123,7 @@ const questions = [{
 {
     type: 'input',
     name: 'GitHub',
-    message: 'List your contributors GitHub Links',
+    message: 'List your contributors GitHub Links (Not included: "https://github.com/")',
     //my boolean check for the installation process above. 
     when: ({confirmGitHub})=> {
         if(confirmGitHub) {
@@ -174,15 +193,14 @@ const questions = [{
         'GPL 2.0',
         'LGPL 2.1'
     ],
-    
-    // validate: questionInput => {
-    //     if(questionInput){
-    //         return true;
-    //     }else {
-    //         console.log('Please pick a license!');
-    //         return false;
-    //     }
-    // } 
+    validate: questionInput => {
+        if(questionInput){
+            return true;
+        }else {
+            console.log('Please pick a license!');
+            return false;
+        }
+    } 
 },
 {
     // PROJECT TESTS
@@ -199,7 +217,7 @@ const questions = [{
         if(confirmTest) {
             return true;
         } else {
-            return 'NOT Available'; 
+            return false; 
         }
     } 
 }];//This is ending the Array that I started right now on line 16 const questions[]

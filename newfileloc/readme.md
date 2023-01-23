@@ -1,38 +1,44 @@
 
-  # sldkfjsdkjlf
+  # Project 9
 
   ## Description 
-  sldfjsdlkjf
+  Not much to say 
 
   ## Table of Contents
   - [Installation](#installation)
   - [Usage](#usage)
   - [Credits](#credits)
   - [License](#license)
+  - [Features](#features)
+  - [How To Contribute](#howtocontribute)
+  - [Test](#test)
 
   ## Installation 
-  undefined
+  1. Make sure that Node is insalled on the computer 
 
   ## Usage
-  undefined
+  1. run 'node index.js' in the terminal/bash
+  
+    [Link to the Live Github Pages Site:](https://chriszavala.github.io/UTA-bootcamp-challenge6/)
+    
 
   ## Credits
-  undefined
-  List of GitHub contributors, [undefined](https://gitbut.com/undefined)
+  List your collaborators:
+  Karen Peazzoni : https://github.com/undefined
 
   
   ### License 
-  3ClauseRL
+  2ClauseSL
   
-  [![Generic badge](https://img.shields.io/badge/License-3ClauseRL-purple.svg)](https://choosealicense.com/licenses/3clauserl/.)
+  [![Generic badge](https://img.shields.io/badge/License-2ClauseSL-purple.svg)](https://choosealicense.com/licenses/2clausesl/.)
   
   
 
   ## Features
-  undefined
+  N/A
 
   ## How to Contribute
-  undefined
+  N/A
 
   ## Test
-  n
+  N/A

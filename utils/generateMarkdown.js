@@ -28,10 +28,20 @@ function renderLicenseSection(license) {
   `
 }
 };
+//Making the insertion of the Live GitHub pages site link. 
+function insertGitHubPagesSite(siteLink) {
+  if(!siteLink) {
+    return"";
+  }else{
+    return `
+    [Link to the Live Github Pages Site:](${siteLink})
+    `
+  }
+};
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  let {licenseList, GitHub, ...info } = data;
+  let {licenseList, GitHub, LiveSite, ...info } = data;
   return `
   # ${data.title}
 
@@ -43,16 +53,20 @@ function generateMarkdown(data) {
   - [Usage](#usage)
   - [Credits](#credits)
   - [License](#license)
+  - [Features](#features)
+  - [How To Contribute](#howtocontribute)
+  - [Test](#test)
 
   ## Installation 
   ${data.installation}
 
   ## Usage
   ${data.provideInstruction}
+  ${insertGitHubPagesSite(LiveSite)}
 
   ## Credits
-  ${data.credit}
-  List of GitHub contributors, [${GitHub}](https://gitbut.com/${GitHub})
+  List your collaborators:
+  ${data.credit}: https://github.com/${GitHub}
 
   ${renderLicenseSection(licenseList)}
 
