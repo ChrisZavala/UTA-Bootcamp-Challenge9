@@ -56,6 +56,7 @@ function generateMarkdown(data) {
   - [License](#license)
   - [Features](#features)
   - [How To Contribute](#how-to-contribute)
+  - [Miscellaneous](#miscellaneous)
   - [Test](#test)
 
   ## Installation 
@@ -78,6 +79,10 @@ function generateMarkdown(data) {
 
   ## How to Contribute
   ${data.contributions}
+
+  ## Miscellaneous 
+  ${data.author}:
+  https://github.com/${data.username}
 
   ## Test
   ${data.tests}

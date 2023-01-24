@@ -17,8 +17,8 @@ const questions = [{
         if(questionInput){
             return true;
         }else {
-            console.log('Please enter something in this space');
-            return false;
+            // console.log('Please enter something in this space');
+            return 'Please enter at least one character.';
         }
     } 
 },
@@ -33,29 +33,22 @@ const questions = [{
         if(questionInput){
             return true;
         }else {
-            console.log('Please enter a description of your project.');
-            return false;
+            // console.log('Please enter a description of your project.');
+            return 'Please enter at least one character.';
         }
     } 
 },
 {
-     // PROJECT INSTALLATION
-    type: 'confirm',
-    name: 'confirmInstallation',
-    message: 'Confirm if there is an installation process?',
-},
-{
+    //PROJECT INSTALLATION
     type: 'input',
     name: 'installation',
-    message: 'What are the steps required to install your project? Please provide a list.',
-    //my boolean check for the installation process above. 
-    when: ({confirmInstallation})=> {
-        if(confirmInstallation) {
-            return true;
-        } else {
-            return false; 
+    message: "How do you install this application and its components?",
+    validate: (answer) => {
+        if (answer !== '') {
+          return true;
         }
-    }
+        return 'Please enter at least one character.';
+      },
 },
 {
     //PROJECT LIVE SITE
@@ -73,86 +66,86 @@ const questions = [{
         if (liveSiteLink) {
         return true;
         } else {
-        console.log('You need to enter a link to the live site!');
-        return false;
+        // console.log('You need to enter a link to the live site!');
+        return 'Please enter at least one character.';
         }
 }
 },
 {
-     // PROJECT USAGE
-    type: 'confirm',
-    name: 'usage',
-    message: 'Would you like to provide instructions and examples how to use your application',
-},
-{
+    //PROJECT USAGE
     type: 'input',
     name: 'provideInstruction',
-    message: 'What are the instructions you would like to provide to use your application.',
-    //my boolean check for the installation process above. 
-    when: ({usage})=> {
-        if(usage) {
-            return true;
-        } else {
-            return false; 
+    message: "How do you Run this application?",
+    validate: (answer) => {
+        if (answer !== '') {
+          return true;
         }
-    }
+        return 'Please enter at least one character.';
+      },
 },
 {
      // PROJECT CREDITS
     type: 'confirm',
     name: 'confirmCredits',
     message: 'Would you like to list your contributors?',
+    default: false,
 },
 {
     type: 'input',
     name: 'credit',
     message: 'List your collaborators. ',
-    //my boolean check for the installation process above. 
-    when: ({confirmCredits})=> {
-        if(confirmCredits) {
-            return true;
+    when: ({ confirmCredits }) => confirmCredits,
+    validate:credit => {
+        if (credit) {
+        return true;
         } else {
-            return false; 
+        // console.log('You need to enter a link to the live site!');
+        return 'Please enter at least one character.';
         }
-    }
+}
 },
 {
     // GITHUB USER NAME
     type: 'confirm',
     name: 'confirmGitHub',
     message: 'Would you like to list your contributors GibHub links?',
+    default: false,
 },
 {
     type: 'input',
     name: 'GitHub',
     message: 'List your contributors GitHub Links (Not included: "https://github.com/")',
-    //my boolean check for the installation process above. 
-    when: ({confirmGitHub})=> {
-        if(confirmGitHub) {
-            return true;
+    when: ({ confirmGitHub }) => confirmGitHub,
+    validate:GitHub => {
+        if (GitHub) {
+        return true;
         } else {
-            return false; 
+        // console.log('You need to enter a link to the live site!');
+        return 'Please enter at least one character.';
         }
-    }
+}
 },
 {
     // PROJECT FEATURES
     type: 'confirm',
     name: 'confirmFeatures',
     message: 'Would you like to list the features of your project here?',
+    default: false,
+
 },
 {
     type: 'input',
     name: 'features',
     message: 'Write a short list of features here of your applications',
-    //my boolean check for the installation process above. 
-    when: ({confirmFeatures})=> {
-        if(confirmFeatures) {
-            return true;
+    when: ({ confirmFeatures }) => confirmFeatures,
+    validate: features => {
+        if (features) {
+        return true;
         } else {
-            return false; 
+        // console.log('You need to enter a link to the live site!');
+        return 'Please enter at least one character.';
         }
-    }
+}
 },
 {
     // PROJECT CONTRIBUTION INSTRUCTIONS
@@ -164,16 +157,16 @@ const questions = [{
     type: 'input',
     name: 'contributions',
     message: 'Write a short message describing how you would like to help the developer(s)',
-    //my boolean check for the installation process above. 
-    when: ({confirmContribute})=> {
-        if(confirmContribute) {
-            return true;
+    when: ({ confirmContribute }) => confirmContribute,
+    validate: contributions => {
+        if (contributions) {
+        return true;
         } else {
-            return false; 
+        // console.log('You need to enter a link to the live site!');
+        return 'Please enter at least one character.';
         }
-    }
+}
 },
-
 //doing my license next and I know will copy from the list on GitHub and give the user a chance to choose
 {
     // LICENSE INFORMATION
@@ -214,15 +207,40 @@ const questions = [{
     type: 'input',
     name: 'tests',
     message: 'List how the users can test your application.',
-    //my boolean check for the installation process above. 
-    when: ({confirmTest})=> {
-        if(confirmTest) {
-            return true;
+    when: ({ confirmTest }) => confirmTest,
+    validate:tests => {
+        if (tests) {
+        return true;
         } else {
-            return false; 
+        // console.log('You need to enter a link to the live site!');
+        return 'Please enter at least one character.';
         }
-    } 
-}];//This is ending the Array that I started right now on line 16 const questions[]
+}
+},
+{
+    //MISCELLANEOUS
+    type: 'input',
+    name: 'author',
+    message: "What's the authors name?",
+    validate: (answer) => {
+        if (answer !== '') {
+          return true;
+        }
+        return 'Please enter at least one character.';
+      },
+},
+{
+    //MISCELLANEOUS
+    type: 'input',
+    name: 'username',
+    message: "What's your GitHub username?",
+    validate: (answer) => {
+        if (answer !== '') {
+          return true;
+        }
+        return 'Please enter at least one character.';
+      },
+},];//This is ending the Array that I started right now on line 16 const questions[]
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {

@@ -1,61 +1,55 @@
-# UTA-Bootcamp-Challenge9
-Node.js Challenge: Professional README Generator
+# The Professional README Generator
 
 ## Description
+\
+My project is 'The Professional README Generator'. The project will help a user generate a README without having to worry about applying proper mark down syntax. 
 
-The task that I have been provided is, When creating an open source project on GitHub, it’s important to have a high-quality README for the app. This should include what the app is for, how to use the app, how to install it, how to report issues, and how to make contributions—this last part increases the likelihood that other developers will contribute to the success of the project.
+This README generator will allow the user to answer a series of specific questions and create a professional complete README based on their responses. It will take a couple minutes and provide the developer with the ability to make their project complete and more professional, increasing the likely hood that someone will want to use their app over similar apps without a README.
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
-
-## Table of Contents (Optional)
-
+## Table of Contents 
+\
 A version of the Table of Contents will be included to show a screenshot description of what the Professional README Generator will look like. 
 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
+- [AcceptanceCriteria](#acceptance-criteria)
+- [Features](#features)
+- [Tests](#tests)
 
 ## Installation
-
-The application will be invoked by using the following command:
-
-node index.js
-
-Because this application won’t be deployed, you’ll also need to provide a link to a walkthrough video that demonstrates its functionality. Revisit the Screencastify Tutorial in the prework as a refresher on how to record video from your computer. You’ll need to submit a link to the video and add it to the README of your project.
-
+\
+You will have to make sure that 'Node' is installed on your system. Then you will have to make sure the contents of the repository are clone on your workstation. Once you have the contents of the 'UTA-Bootcamp-Challenge9' you will be able to run the application.
 
 ## Usage
+\
+Here are screenshots that are included to show 'The Professional README Generator' application being used by a user:
 
-Provide instructions and examples for use. Include screenshots as needed.
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+ Once you are in 'VS Code' and in the directory that is called 'UTA -Bootcamp-Challenge9' you will be able to right click on the 'index.js' file and 'Open in Integrated Terminal'. Once you are at the terminal window below, you will execute at the terminal prompt%: 'node index.js' and then hit enter. 
 
 The application will be invoked by using the following command:
 
 ```bash
 node index.js
 ```
+You will then be greeted with a 'Welcome to theProfessional README Generator" and you can begin by answering all the applicable questions. Once the question and answers are complete a 'readme.md' file will be generated in the 'dist' folder. You will now have access to a very professional looking 'README.md' file that can be attached to your development project. 
 
 ## Credits
-
-List your collaborators, if any, with links to their GitHub profiles.
-
+\
 List your collaborators: 
-
-Christopher Zavala: https://github.com/ChrisZavala 
-Josh Goeke: https://github.com/joshuagoeke
-Karen Peazzoni: https://github.com/kpeazzoni
+\
+Josh Goeke: https://github.com/joshuagoeke \
+Karen Peazzoni: https://github.com/kpeazzoni \
+Christopher Zavala: https://github.com/chriszavala 
 
 ## License
-
-MIT License rights are used for this open source project. 
+\
+MIT License rights are used for this open source project. \
+[![Generic badge](https://img.shields.io/badge/License-MIT&ensp;License-purple.svg)](https://choosealicense.com/licenses/mit-license/.)
 
 ## Acceptance Criteria
-
+\
 GIVEN a command-line application that accepts user input
 WHEN I am prompted for information about my application repository
 THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
@@ -73,8 +67,19 @@ WHEN I click on the links in the Table of Contents
 THEN I am taken to the corresponding section of the README
 
 ## Features
-
-N/A
+\
+This application is using 'Node' and the 'Inquirer 8.2.4' npm modules for creating of the 'README.md' file. The feature that this project challenge has is the abilty to create the license badge for which license is pick. In this project the 'MIT Licnese' is used.
 
 ## Tests
-N/A
+The user can run this generator as many times as they want. They will be at the very least be able to create a template for the 'READme.md' file for any future projects or challenges.
+
+### Video Link inserted here:
+
+https://drive.google.com/file/d/1l5RaNfSz1gwlbmMtF5c6s18_PkQ-qKxf/view
+
+
+### Screenshots:
+![Alt text](./assets/images/terminalquestions.jpg)
+![Alt text](./assets/images/rawreadme.jpg)
+![Alt text](./assets/images/previewreadme.jpg)
+
